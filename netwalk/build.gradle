@@ -27,8 +27,7 @@ dependencies {
 	implementation 'org.projectlombok:lombok'
 
 	// gcp
-	implementation 'org.springframework.cloud:spring-cloud-gcp-starter-storage'
-	implementation 'io.kestra.storage:storage-gcs:0.6.0'
+	implementation 'com.google.cloud:spring-cloud-gcp-starter-storage:2.0.2'
 
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
