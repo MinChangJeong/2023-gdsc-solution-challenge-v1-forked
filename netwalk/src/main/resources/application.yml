@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: ${datasource-url}
+      username: ${datasource-username}
+      password: ${datasource-password}
+  session:
+    jdbc:
+      initialize-schema: always
+
+#    redis:
+#      host: ${redis-host}
+#      port: ${redis-port}
+
+  mybatis:
+    configuration:
+      multiple-result-sets-enabled: false
+      map-underscore-to-camel-case: true
+      call-setters-on-nulls: true
+      jdbc-type-for-null: varchar
+      default-fetch-size: 500
+
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:affable-case-376500-1aad5b6febf7.json
+
+app:
+  cors:
+    # comma (',') seperated list of allowed origins for CORS
+    allowed-origins: http://localhost
+
