@@ -25,10 +25,24 @@ spring:
     gcp:
       storage:
         credentials:
-          location: classpath:affable-case-376500-1aad5b6febf7.json
+          location: ${gcp-key-location}
 
 app:
   cors:
     # comma (',') seperated list of allowed origins for CORS
     allowed-origins: http://localhost
+
+server:
+  port: 8080
+
+# Actuator(모니터링 기능) Endpoint 설정
+management:
+  endpoint:
+    web:
+      exposure:
+        # 1. /health -> application의 건강 상태 정보 반환
+        # 2. /info -> application 정보 반환
+        # 3. / prometheus -> endpoint 지점
+        include: health, info, prometheus
+
 

@@ -19,18 +19,29 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
 	implementation 'org.springframework.session:spring-session-jdbc'
 
-//	implementation 'javax.servlet:servlet-api:2.5'
-
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'org.springframework.session:spring-session-data-redis'
 
-	implementation 'org.projectlombok:lombok'
-
 	// gcp
-	implementation 'com.google.cloud:spring-cloud-gcp-starter-storage:2.0.2'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-gcp-starter', version: '1.2.5.RELEASE'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-gcp-storage', version: '1.2.5.RELEASE'
+
+	// Micrometer (SpringBoot2부터 Actuator에 포함)
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	// Micrometer가 만들어내는 Metric을 Prometheus 서버에서 사용할 수 있는 Metric format으로 변경
+	implementation 'io.micrometer:micrometer-registry-prometheus'
+
+	// swaager
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'

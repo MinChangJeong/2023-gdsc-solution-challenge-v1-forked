@@ -1,11 +1,11 @@
 package gdsc.netwalk.gcp.controller;
 
-import com.google.cloud.storage.Blob;
+
 import com.google.cloud.storage.BlobInfo;
-import gdsc.netwalk.gcp.dto.DownloadReqDto;
 import gdsc.netwalk.gcp.dto.UploadReqDto;
 import gdsc.netwalk.gcp.service.GCSService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +17,8 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class GCSController {
 
-    private final GCSService gcsService;
+    @Autowired
+    private GCSService gcsService;
 
 //    @PostMapping("gcs/download")
 //    public ResponseEntity localDownloadFromStorage(@RequestBody DownloadReqDto downloadReqDto){

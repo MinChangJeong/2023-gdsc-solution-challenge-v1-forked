@@ -88,4 +88,5 @@ public class Payload extends HashMap<String, Object> {
 		}
 		return result;
 	}
+
 }

@@ -19,10 +19,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 import javax.sql.DataSource;
 
-@EnableWebMvc
 @Configuration
+@ComponentScan({"gdsc.netwalk.business", "gdsc.netwalk.common", "gdsc.netwalk.gcp"})
+@EnableWebMvc
 @PropertySource("classpath:/application.yml")
-@ComponentScan({"gdsc.netwalk.business", "gdsc.netwalk.common"})
 public class WebMvcConfig extends WebMvcConfigurationSupport{
 
     @Autowired
