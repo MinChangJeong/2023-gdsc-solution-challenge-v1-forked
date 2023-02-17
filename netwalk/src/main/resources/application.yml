@@ -9,10 +9,6 @@ spring:
     jdbc:
       initialize-schema: always
 
-#    redis:
-#      host: ${redis-host}
-#      port: ${redis-port}
-
   mybatis:
     configuration:
       multiple-result-sets-enabled: false

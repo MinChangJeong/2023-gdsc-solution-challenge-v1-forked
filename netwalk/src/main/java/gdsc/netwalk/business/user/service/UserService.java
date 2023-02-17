@@ -1,31 +1,23 @@
 package gdsc.netwalk.business.user.service;
 
+import gdsc.netwalk.business.user.mapper.UserMapper;
 import gdsc.netwalk.common.model.Payload;
-import gdsc.netwalk.common.service.SuperService;
-import lombok.extern.java.Log;
-import org.apache.ibatis.jdbc.SQL;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService extends SuperService {
+public class UserService{
 
-    private static final String MAPPER_NAME = "mybatis.user.user_mapper";
+    @Autowired
+    UserMapper userMapper;
 
     public Payload login(Payload request) {
         Payload result = new Payload();
 
         try {
             // [1] 회원정보 조회
-            if(select(MAPPER_NAME + "selectUserByEmail", request).isEmpty()) {
-//                switch(request.getString("reg_gb")) {
-//                    case "UR01": // 구글로그인
-//                        result.set("reg_gb", request.getInt("UR01"));
-//                        break;
-//                    case "UR02":
-//                        result.set("reg_gb", request.getInt("UR02"));
-//                        break;
-//                }
-                insert(MAPPER_NAME + "registerUser", request);
+            if(userMapper.selectUserByEmail(request).isEmpty()) {
+                userMapper.login(request);
                 result.set("user_no", request.getInt("user_no"));
             }
 
